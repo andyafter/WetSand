@@ -1,0 +1,6 @@
+#+TITLE: WetSand
+
+WetSand is a project for rendering and simulating different materials. Purpose of this project is to build models for compressing the amount of calculation power required for such simulations.
+
+** Requirements
+You need to install *cmake*. Majority of this project is built with *OpenGL*. 
