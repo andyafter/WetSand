@@ -1,6 +1,10 @@
 set(SOURCE_FILES
   "main.cpp"
   "sceneStructs.h"
+  "utilities.cpp"
+  "utilities.h"
+  "scene.cpp"
+  "scene.h"
   )
 
 
