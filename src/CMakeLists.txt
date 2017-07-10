@@ -1,5 +1,6 @@
 set(SOURCE_FILES
   "main.cpp"
+  "sceneStructs.h"
   )
 
 

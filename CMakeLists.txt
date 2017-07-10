@@ -18,7 +18,6 @@ endif()
 link_directories(${EXTERNAL_LIB_PATH})
 list(APPEND CMAKE_LIBRARY_PATH "${EXTERNAL_LIB_PATH}")
 
-
 # Find up and set up core dependency libs
 set(GLFW_INCLUDE_DIR "${EXTERNAL}/include")
 set(GLFW_LIBRARY_DIR "${CMAKE_LIBRARY_PATH}")
@@ -32,29 +31,31 @@ find_package(GLEW)
 
 find_package(OpenGL)
 
-
 set(CORELIBS
     "${GLFW_LIBRARY}"
     "${OPENGL_LIBRARY}"
     "${GLEW_LIBRARY}"
     )
-
   
 # Enable C++11 for host code
 set(CMAKE_CXX_STANDARD 11)
 
+# OSX-specific hacks/fixes
+if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    list(APPEND CORELIBS "-framework IOKit")
+    list(APPEND CORELIBS "-framework Cocoa")
+    list(APPEND CORELIBS "-framework CoreVideo")
+endif()
 
 include_directories(.)
-#add_subdirectory(stream_compaction)  # TODO: uncomment if using your stream compaction
 add_subdirectory(src)
 
 add_executable(${CMAKE_PROJECT_NAME}
-    "src/main.cpp"
+  "src/main.cpp"
+  #"src/sceneStructs.h"
     )
 
 
 target_link_libraries(${CMAKE_PROJECT_NAME}
-    #src
-    #stream_compaction  # TODO: uncomment if using your stream compaction
     ${CORELIBS}
     )
