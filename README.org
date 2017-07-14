@@ -4,3 +4,13 @@ WetSand is a project for rendering and simulating different materials. Purpose o
 
 ** Requirements
 You need to install *cmake*. Majority of this project is built with *OpenGL*. 
+
+** Build and Run
+
+For Mac OS X users and Linux users, open a terminal and use the following commands:
+#+BEGIN_SRC shell
+./clean_and_make.sh
+cd build
+make 
+./physics
+#+END_SRC
